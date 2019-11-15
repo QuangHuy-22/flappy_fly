@@ -248,7 +248,7 @@ const pipes = {
     h : 400,
     gap : 150,
     maxYPos : -150,
-    dx : 3,
+    dx : 2,
     
     draw : function(){
         for(let i  = 0; i < this.position.length; i++){

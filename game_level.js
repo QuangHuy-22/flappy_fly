@@ -12,7 +12,7 @@ const DEGREE = Math.PI/180;
 
 // LOAD SPRITE IMAGE
 const sprite = new Image();
-sprite.src = "img/sprite3.png";
+sprite.src = "img/sprite5.png";
 
 // LOAD SOUNDS
 const SCORE_S = new Audio();
@@ -100,9 +100,9 @@ const bg = {
 
 // FOREGROUND
 const fg = {
-    sX: 276,
+    sX: 280,
     sY: 0,
-    w: 224,
+    w: 210,
     h: 112,
     x: 0,
     y: cvs.height - 112,
@@ -127,17 +127,17 @@ const fg = {
 // BIRD
 const bird = {
     animation : [
-        {sX: 276, sY : 112},
-        {sX: 276, sY : 139},
-        {sX: 276, sY : 164},
-        {sX: 276, sY : 139}
+        {sX: 446, sY : 139},
+        {sX: 446, sY : 139},
+        {sX: 446, sY : 139},
+        {sX: 446, sY : 139}
     ],
-    x : 681,
-    y : 500,
-    w : 34,
-    h : 26,
+    x : 50,
+    y : 150,
+    w : 54,
+    h : 66,
     
-    radius : 12,
+    radius : 14,
     
     frame : 0, // trạng thái ban đầu của bird
     
@@ -145,8 +145,7 @@ const bird = {
     jump : 4.6,
     speed : 0,
     rotation : 0,
-    
-    draw : function(){
+        draw : function(){
         let bird = this.animation[this.frame];
         
         ctx.save();
@@ -236,17 +235,17 @@ const pipes = {
     position : [],
     
     top : {
-        sX : 553,
+        sX : 558,
         sY : 0
     },
     bottom:{
-        sX : 502,
+        sX : 502.5,
         sY : 0
     },
     
-    w : 53,
+    w : 55,
     h : 400,
-    gap : 100,
+    gap : 150,
     maxYPos : -150,
     dx : 5,
     
@@ -281,10 +280,10 @@ const pipes = {
 
             //COLLISION DETECTION
             //TOP PIPE
-            // if(bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w && bird.y + bird.radius > p.y && bird.y - bird.radius < p.y + this.h ){
-            //     state.current = state.over;
-            //     HIT.play();
-            // }
+            if(bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w && bird.y + bird.radius > p.y && bird.y - bird.radius < p.y + this.h ){
+                state.current = state.over;
+                HIT.play();
+            }
             //BOTTOM PIPE
             if(bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w && bird.y + bird.radius > bottomPipeYPos && bird.y - bird.radius < bottomPipeYPos + this.h ){
                 state.current = state.over;
