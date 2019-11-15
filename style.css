@@ -35,15 +35,19 @@ width: 100%;
     text-decoration: none;
     color: white!important;
 }
+.om_lv_wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0, 0.5);
+}
 .om_lv{
     display: inline-block;
     position: absolute;
     justify-content: space-between;
-    top: 250px;
-    left: 630px;
-    width: 100px;
-    height: 100px;
-    
+    top: calc(50% + 20px);
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .back{
     display: inline-block;
