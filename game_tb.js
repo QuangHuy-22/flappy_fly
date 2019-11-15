@@ -12,7 +12,7 @@ const DEGREE = Math.PI/180;
 
 // LOAD SPRITE IMAGE
 const sprite = new Image();
-sprite.src = "img/sprite5.png";
+sprite.src = "img/sprite6.png";
 
 // LOAD SOUNDS
 const SCORE_S = new Audio();
@@ -100,16 +100,16 @@ const bg = {
 
 // FOREGROUND
 const fg = {
-    sX: 280,
+    sX: 276,
     sY: 0,
-    w: 210,
+    w: 224,
     h: 112,
     x: 0,
     y: cvs.height - 112,
-    
-    dx : 2,
-    
-    draw : function(){
+
+    dx: 2,
+
+    draw: function () {
         let x = this.x;
         while (x < WINDOW_WIDTH) {
             ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, x, this.y, this.w, this.h);
@@ -117,34 +117,35 @@ const fg = {
         }
     },
 
-    update: function(){
-        if(state.current == state.game){
-            this.x = (this.x - this.dx)%(this.w/2);
+    update: function () {
+        if (state.current == state.game) {
+            this.x = (this.x - this.dx) % (this.w / 2);
         }
     }
 };
 
 // BIRD
 const bird = {
-    animation : [
-        {sX: 446, sY : 139},
-        {sX: 446, sY : 139},
-        {sX: 446, sY : 139},
-        {sX: 446, sY : 139}
+    animation: [
+        { sX: 436, sY: 139 },
+        { sX: 436, sY: 139 },
+        { sX: 436, sY: 139 },
+        { sX: 436, sY: 139 }
     ],
-    x : 50,
-    y : 150,
-    w : 54,
-    h : 66,
-    
-    radius : 14,
-    
-    frame : 0, // trạng thái ban đầu của bird
-    
-    gravity : 0.25,
-    jump : 4.6,
-    speed : 0,
-    rotation : 0,
+    x: 50,
+    y: 150,
+    w: 40,
+    h: 31,
+
+    radius: 12,
+
+    frame: 0, // trạng thái ban đầu của bird
+
+    gravity: 0.25,
+    jump: 4.6,
+    speed: 0,
+    rotation: 0,
+
         draw : function(){
         let bird = this.animation[this.frame];
         
@@ -232,22 +233,23 @@ const gameOver = {
 
 // PIPES
 const pipes = {
-    position : [],
-    
-    top : {
-        sX : 558,
-        sY : 0
+    position: [],
+
+    top: {
+        sX: 553,
+        sY: 0
     },
-    bottom:{
-        sX : 502.5,
-        sY : 0
+    bottom: {
+        sX: 502,
+        sY: 0
     },
-    
-    w : 55,
-    h : 400,
-    gap : 150,
-    maxYPos : -150,
-    dx : 5,
+
+    w: 53,
+    h: 400,
+    gap: 100,
+    maxYPos: -150,
+    dx: 5,
+
     draw : function(){
         for(let i  = 0; i < this.position.length; i++){
             let p = this.position[i];
@@ -312,41 +314,36 @@ const pipes = {
 
 }
 
-// SCORE
+//SCORE
 const score = {
-    best : parseInt(localStorage.getItem("best")) || 0,
-    value : 0,
-    
-    draw : function(){
-        
+    best: parseInt(localStorage.getItem("best")) || 0,
+    value: 0,
+
+    draw: function () {
+
         ctx.fillStyle = "#FFF";
         ctx.strokeStyle = "#000";
-        
-        if(state.current == state.game){
+
+        if (state.current == state.game) {
             ctx.lineWidth = 2;
             ctx.font = "35px Teko";
-            ctx.fillText(this.value, cvs.width/2, 50);
-            ctx.strokeText(this.value, cvs.width/2, 50);
+            ctx.fillText(this.value, cvs.width / 2, 50);
+            ctx.strokeText(this.value, cvs.width / 2, 50);
+
+        } else if (state.current == state.over) {
             
-        } else if(state.current == state.over){
-            let x = this.x;
-            while (x < WINDOW_WIDTH) {
-        
-                ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, x, this.y, this.w, this.h);
-                x += this.w;
-                //SCORE VALUE
-                tx.font = '25px Teko';
-                ctx.fillText(this.value, 225, 186);
-                ctx.strokeText(this.value, 225, 186);
-                // BEST SCORE
-                ctx.fillText(this.best, 225, 228);
-                ctx.strokeText(this.best, 225, 228);
-            }
-            
+            // SCORE VALUE
+            ctx.font = "25px Teko";
+            ctx.fillText(this.value, gameOver.x + 175, 186);
+            ctx.strokeText(this.value,  gameOver.x + 175 , 186);
+            // BEST SCORE
+            ctx.fillText(this.value, gameOver.x + 175, 228);
+            ctx.strokeText(this.best, gameOver.x + 175, 228);
         }
+        
     },
-    
-    reset : function(){
+
+    reset: function () {
         this.value = 0;
     }
 }
