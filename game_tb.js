@@ -292,7 +292,7 @@ const pipes = {
             }
 
             // MOVE THE PIPE TO THE LEFT
-            
+            p.x -= this.dx;
             
             // if the pipes go beyond canvas, we delete them from the array
             if(p.x + this.w <= 25){
