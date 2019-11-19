@@ -9,7 +9,7 @@
     <link rel="shortcut icon" type="image/png" href="./img/chicken2.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="/manifest.json"><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         body{
             background-image: url("./img/night.png");
@@ -41,12 +41,16 @@
         <img src="./img/logo.png" alt="" class="logo">
         <div class="om_lv_wrapper">
             <div class="om_lv">
-                <div class="lv" > <a href="index_de.html"style="user-select: none;"> Dễ </a></div>
-                <div class="lv"> <a href="index_tb.html"style="user-select: none;"> Trung bình </a></div>
-                <div class="lv"> <a href="index_kho.html"style="user-select: none;"> Khó </a></div>
+                <div class="lv" data-aos="fade-down" data-aos-duration="3000"> <a href="index_de.html"style="user-select: none;"> Dễ </a></div>
+                <div class="lv" data-aos="fade-down" data-aos-duration="2500"> <a href="index_tb.html"style="user-select: none;"> Trung bình </a></div>
+                <div class="lv" data-aos="fade-down" data-aos-duration="2000"> <a href="index_kho.html"style="user-select: none;"> Khó </a></div>
             </div>
         </div>
     </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
